@@ -28,7 +28,7 @@ model = pickle.load(
 
 @app.get("/", response_class = HTMLResponse)
 def home():
-    return """
+    return HTMLResponse(content="""
     <html>
     <head>
         <title>Animal Predictor</title>
@@ -48,7 +48,7 @@ def home():
         </form>
     </body>
     </html>
-    """
+    """, media_type="text/html")
 
 
 class Animal(BaseModel):
