@@ -4,6 +4,8 @@ from typing import List
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from fastapi.responses import HTMLResponse
+
 
 
 app = FastAPI(
@@ -24,7 +26,7 @@ model = pickle.load(
 )
 
 
-@app.get("/")
+@app.get("/", response_class = HTMLResponse)
 def home():
     return """
     <html>
